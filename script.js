@@ -1,7 +1,8 @@
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
-    button.innerText = '?';
-    let places = staticLoadPlaces();
+    button.innerText = 'X';
+    //let places = staticLoadPlaces();
+    let places = getUserPlaces();
     renderPlaces(places);
 };
 
@@ -11,6 +12,20 @@ function staticLoadPlaces() {
         location: {
             lat: 38.999101,
             lng: -9.007045,
+        },
+    }, ];
+};
+
+function getUserPlaces() {
+    let position = navigator.geolocation.getCurrentPosition();
+    let latt = position.coords.latitude;
+    let long = position.coords.longitude;
+
+    return [{
+        name: 'Pokémon',
+        location: {
+            lat: latt,
+            lng: long,
         },
     }, ];
 };
