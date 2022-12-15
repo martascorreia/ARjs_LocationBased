@@ -1,32 +1,24 @@
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = 'X';
-    //let places = staticLoadPlaces();
-    let places = navigator.geolocation.getCurrentPosition(getUserPlaces);
+    navigator.geolocation.getCurrentPosition(main);
+};
+
+function loadPlaces(userLat, userLng) {
+    return [{
+        name: 'Pokémon',
+        location: {
+            lat: userLat,
+            lng: userLng,
+        },
+    }, ];
+};
+
+function main(position) {
+    let userLat = position.coords.latitude;
+    let userLng = position.coords.longitude;
+    let places = loadPlaces(userLat, userLng);
     renderPlaces(places);
-};
-
-function staticLoadPlaces() {
-    return [{
-        name: 'Pokémon',
-        location: {
-            lat: 38.999101,
-            lng: -9.007045,
-        },
-    }, ];
-};
-
-function getUserPlaces(position) {
-    let latt = position.coords.latitude;
-    let long = position.coords.longitude;
-
-    return [{
-        name: 'Pokémon',
-        location: {
-            lat: latt,
-            lng: long,
-        },
-    }, ];
 };
 
 var models = [{
