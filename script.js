@@ -22,21 +22,21 @@ function main(position) {
 };
 
 var models = [{
-        url: './assets/magnemite/scene.gltf',
-        scale: '0.5 0.5 0.5',
+        url: 'https://martacorreia29.github.io/ARjs_LocationBased/assets/magnemite/scene.gltf',
+        scale: '0.4 0.4 0.4',
         info: 'Magnemite, Lv. 5, HP 10/10',
         rotation: '0 180 0',
-        position: "0 0 -20"
+        position: "0 0 -10"
     },
     {
-        url: './assets/articuno/scene.gltf',
+        url: 'https://martacorreia29.github.io/ARjs_LocationBased/assets/articuno/scene.gltf',
         scale: '0.2 0.2 0.2',
         rotation: '0 180 0',
         info: 'Articuno, Lv. 80, HP 100/100',
         position: "0 0 -20"
     },
     {
-        url: './assets/dragonite/scene.gltf',
+        url: 'https://martacorreia29.github.io/ARjs_LocationBased/assets/dragonite/scene.gltf',
         scale: '0.08 0.08 0.08',
         rotation: '0 180 0',
         info: 'Dragonite, Lv. 99, HP 150/150',
