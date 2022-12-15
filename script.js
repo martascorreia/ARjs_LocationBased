@@ -2,7 +2,7 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = 'X';
     //let places = staticLoadPlaces();
-    let places = getUserPlaces();
+    let places = navigator.geolocation.getCurrentPosition(getUserPlaces);
     renderPlaces(places);
 };
 
@@ -16,8 +16,7 @@ function staticLoadPlaces() {
     }, ];
 };
 
-function getUserPlaces() {
-    let position = navigator.geolocation.getCurrentPosition();
+function getUserPlaces(position) {
     let latt = position.coords.latitude;
     let long = position.coords.longitude;
 
