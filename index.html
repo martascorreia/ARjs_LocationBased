@@ -18,7 +18,7 @@
 <body style='margin: 0; overflow: hidden;'>
     <div class="centered instructions"></div>
     <a-scene renderer="logarithmicDepthBuffer: true" vr-mode-ui='enabled: false' embedded arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-        <a-camera gps-new-camera='gpsMaxDistance: 5' rotation-reader/>
+        <a-camera gps-new-camera='gpsMaxDistance: 5' near="1" far="30000" rotation-reader/>
     </a-scene>
     <div class="centered">
         <button data-action="change"></button>
