@@ -34,7 +34,7 @@ function main(userLat, userLng) {
 };
 
 var models = [{
-        url: 'https://martacorreia29.github.io/ARjs_LocationBased/assets/magnemite/scene.gltf',
+        url: 'https://martacorreia29.github.io/ARjs_LocationBased/assets/sondagem4 - smaller.glb',
         scale: '0.4 0.4 0.4',
         info: 'Magnemite, Lv. 5, HP 10/10',
         rotation: '0 180 0',
