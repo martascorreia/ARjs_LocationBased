@@ -37,8 +37,8 @@ var models = [{
         url: 'https://martacorreia29.github.io/ARjs_LocationBased/assets/sondagem4 - smaller.glb',
         scale: '0.4 0.4 0.4',
         info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '180 60 180',
-        position: "1000 -5000 -15000"
+        rotation: '0 180 0',
+        position: "0 0 -10"
     },
     {
         url: 'https://martacorreia29.github.io/ARjs_LocationBased/assets/articuno/scene.gltf',
