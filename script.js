@@ -1,8 +1,8 @@
 window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = 'X';
-    navigator.geolocation.getCurrentPosition(userLocation);
-    //staticLocation();
+    //navigator.geolocation.getCurrentPosition(userLocation);
+    staticLocation();
 };
 
 function loadPlaces(latitude, longitude) {
@@ -16,8 +16,8 @@ function loadPlaces(latitude, longitude) {
 };
 
 function staticLocation() {
-    staticLat = 38.999570; //39.0040083 //
-    staticLng = -9.007271; //-9.0018532 //
+    staticLat = 38.999060;
+    staticLng = -9.007022;
     main(staticLat, staticLng);
 }
 
