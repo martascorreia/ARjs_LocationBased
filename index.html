@@ -16,18 +16,13 @@
       renderer="logarithmicDepthBuffer: true;"
       vr-mode-ui="enabled: false"
       embedded
-      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
-      <a-camera id="camera" look-controls-enabled='false' 
-        arjs-device-orientation-controls='smoothingFactor: 0.1' 
-        gps-new-camera='gpsMinDistance: 10; positionMinAccuracy: 1'
-        rotation-reader> 
-      </a-camera>
+      arjs="sourceType: webcam; debugUIEnabled: false;">
+      <a-camera gps-new-camera positionMinAccuracy="10" rotation-reader> </a-camera>
       <a-box color="yellow"
         look-at="[gps-new-camera]"
         scale="10 10 10"
         gps-new-entity-place="latitude: 38.999093; longitude: -9.0070356;"
         ></a-box>
-
         <a-box color="blue"
         look-at="[gps-new-camera]"
         scale="10 10 10"
