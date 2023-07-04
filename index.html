@@ -12,35 +12,22 @@
   </head>
 
   <body style="margin: 0; overflow: hidden;">
-    <a-scene
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;">
-      <a-camera gps-new-camera positionMinAccuracy="10" rotation-reader> </a-camera>
-      <a-box color="yellow"
-        look-at="[gps-new-camera]"
-        scale="1 1 1"
-        gps-new-entity-place="latitude: 38.999093; longitude: -9.0070356;"
-        ></a-box>
-        
-        <a-box color="blue"
-        look-at="[gps-new-camera]"
-        scale="1 1 1"
-        gps-new-entity-place="latitude: 38.999388; longitude: -9.007272;"
-        ></a-box>
+    <a-scene 
+    webxr="optionalFeatures: hit-test;"
+    ar-hit-test="target:#myobject;"
+    renderer="logarithmicDepthBuffer: true;" 
+    vr-mode-ui='enabled: false' 
+    embedded 
+    arjs='sourceType: webcam;'>
+    <a-camera gps-new-camera positionMinAccuracy="10" rotation-reader> </a-camera>
 
-        <a-box color="red"
-        look-at="[gps-new-camera]"
-        scale="1 1 1"
-        gps-new-entity-place="latitude: 38.999109; longitude: -9.007182;"
-        ></a-box>
-
-        <a-box color="green"
-        look-at="[gps-new-camera]"
-        scale="1 1 1"
-        gps-new-entity-place="latitude: 38.998715; longitude: -9.007140;"
-        ></a-box>
-    </a-scene>
+    <a-box 
+    id="myobject"
+    color="yellow"
+    look-at="[gps-new-camera]"
+    scale="1 1 1"
+    gps-new-entity-place="latitude: 38.999093; longitude: -9.0070356;"
+    />
+  </a-scene> 
   </body>
 </html>
