@@ -11,35 +11,15 @@
     <script type="text/javascript"
         src="https://www.unpkg.com/@ar-js-org/ar.js@3.4.5/aframe/build/aframe-ar.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script>
-        AFRAME.registerComponent('gps-position-updater', {
-            init: function () {
-                var model = this.el; // Reference to the model entity
-
-                // Function to update the model's position based on GPS coordinates
-                function updatePosition(latitude, longitude) {
-                    // Convert latitude and longitude to A-Frame coordinate system
-                    var coords = ARjs.Utils.mapCoordsToAR(new THREE.Vector2(latitude, longitude));
-                    // Update the position of the model
-                    model.setAttribute('position', coords.x + ' 0 ' + coords.y);
-                }
-
-                // Watch for changes in user's position
-                this.el.sceneEl.addEventListener('gps-camera-update-position', function (event) {
-                    var position = event.detail.position;
-                    // Update the model's position whenever the user's position changes
-                    updatePosition(position.latitude, position.longitude);
-                });
-            }
-        });
-    </script>
+    <script src="./script.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
     <a-scene renderer="logarithmicDepthBuffer: true;" vr-mode-ui='enabled: false' embedded arjs='sourceType: webcam;'>
         <a-camera gps-new-camera positionMinAccuracy="10" rotation-reader> </a-camera>
-        <a-entity gltf-model="https://martascorreia.github.io/ARjs_LocationBased/assets/articuno/scene.gltf"
-            gps-position-updater look-at="[gps-camera]" scale="0.05 0.05 0.05" />
+
+        <a-box color="yellow" look-at="[gps-new-camera]" scale="1 1 1"
+            gps-new-entity-place="latitude: 38.999093; longitude: -9.0070356;" />
     </a-scene>
 </body>
 
