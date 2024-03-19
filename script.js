@@ -2,7 +2,6 @@ window.onload = () => {
     const button = document.querySelector('button[data-action="change"]');
     button.innerText = 'X';
     navigator.geolocation.getCurrentPosition(userLocation);
-    //staticLocation();
 };
 
 function loadPlaces(latitude, longitude) {
@@ -14,12 +13,6 @@ function loadPlaces(latitude, longitude) {
         },
     }, ];
 };
-
-function staticLocation() {
-    staticLat = 38.999570; //39.0040083 //
-    staticLng = -9.007271; //-9.0018532 //
-    main(staticLat, staticLng);
-}
 
 function userLocation(position) {
     let userLat = position.coords.latitude;
@@ -37,22 +30,22 @@ var models = [{
         url: 'https://martascorreia.github.io/ARjs_LocationBased/assets/magnemite/scene.gltf',
         scale: '0.4 0.4 0.4',
         info: 'Magnemite, Lv. 5, HP 10/10',
-        rotation: '0 180 0',
-        position: "0 0 -10"
+        rotation: '0 0 0',
+        position: "0 0 -40"
     },
     {
         url: 'https://martascorreia.github.io/ARjs_LocationBased/assets/articuno/scene.gltf',
         scale: '0.2 0.2 0.2',
-        rotation: '0 180 0',
+        rotation: '0 0 0',
         info: 'Articuno, Lv. 80, HP 100/100',
-        position: "0 -20 -50"
+        position: "0 -15 -50"
     },
     {
         url: 'https://martascorreia.github.io/ARjs_LocationBased/assets/dragonite/scene.gltf',
         scale: '0.04 0.04 0.04',
-        rotation: '0 180 0',
+        rotation: '0 0 0',
         info: 'Dragonite, Lv. 99, HP 150/150',
-        position: "0 -5 -20"
+        position: "0 -3 -20"
     },
 ];
 
@@ -86,11 +79,7 @@ function renderPlaces(places) {
 
         let model = document.createElement('a-entity');
         model.setAttribute('gps-new-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('look-at', `[gps-new-camera]`);
-
         setModel(models[modelIndex], model);
-
-        //model.setAttribute('animation-mixer', '');
 
         document.querySelector('button[data-action="change"]').addEventListener('click', function() {
             var entity = document.querySelector('[gps-new-entity-place]');
