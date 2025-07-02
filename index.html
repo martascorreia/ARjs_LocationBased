@@ -2,25 +2,40 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Location-based AR.js demo</title>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script type="text/javascript"
-        src="https://www.unpkg.com/@ar-js-org/ar.js@3.4.5/three.js/build/ar-threex-location-only.js"></script>
-    <script type="text/javascript"
-        src="https://www.unpkg.com/@ar-js-org/ar.js@3.4.5/aframe/build/aframe-ar.js"></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="./script.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>AR.js with User Location</title>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://www.unpkg.com/@ar-js-org/ar.js@3.4.5/three.js/build/ar-threex-location-only.js"></script>
+  <script src="https://www.unpkg.com/@ar-js-org/ar.js@3.4.5/aframe/build/aframe-ar.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-    <a-scene renderer="logarithmicDepthBuffer: true;" vr-mode-ui='enabled: false' embedded arjs='sourceType: webcam;'>
-        <a-camera gps-new-camera positionMinAccuracy="10" rotation-reader> </a-camera>
+  <a-scene renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam;">
+    <a-camera gps-new-camera positionMinAccuracy="10" rotation-reader></a-camera>
+  </a-scene>
 
-        <a-box color="yellow" look-at="[gps-new-camera]" scale="1 1 1"
-            gps-new-entity-place="latitude: 38.999093; longitude: -9.0070356;" />
-    </a-scene>
+  <script>
+    window.onload = () => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let userLat = position.coords.latitude;
+        let userLng = position.coords.longitude;
+
+        console.log("User location:", userLat, userLng);
+
+        const scene = document.querySelector('a-scene');
+
+        const box = document.createElement('a-box');
+        box.setAttribute('color', 'yellow');
+        box.setAttribute('scale', '1 1 1');
+        box.setAttribute('look-at', '[gps-new-camera]');
+        box.setAttribute('gps-new-entity-place', `latitude: ${userLat}; longitude: ${userLng};`);
+
+        scene.appendChild(box);
+      });
+    };
+  </script>
 </body>
 
 </html>
